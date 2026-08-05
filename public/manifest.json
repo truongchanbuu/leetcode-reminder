@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "PatternQueue for LeetCode",
+  "short_name": "PatternQueue",
+  "version": "0.6.1",
+  "version_name": "0.6.1 - FSRS Storage Fix",
+  "description": "Master NeetCode 150 with FSRS, local problem notes, ranked Challenges, and cinematic promotion effects.",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "permissions": ["storage", "alarms", "notifications", "tabs"],
+  "host_permissions": ["https://leetcode.com/*", "https://neetcode.io/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "PatternQueue",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://leetcode.com/problems/*",
+        "https://neetcode.io/problems/*"
+      ],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
